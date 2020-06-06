@@ -10,7 +10,7 @@
 ```python ./faceswap.py <head image> <face image>```
 
 ## Требования
-- -open-cv (cv2) ```pip3 install open-cv```
+- open-cv (cv2) ```pip3 install open-cv```
 
 - dlib ```pip3 install dlib```, возможно требуется Cmake, если ошибка
 Все под Unix
