@@ -8,6 +8,7 @@ import contactsHandler as ch
 import gameHandler as gh
 import menuHandler as mh
 import resultHandler as rh
+import imageHandler as ih
 
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardRemove, InputFile, ContentType
@@ -22,9 +23,7 @@ dp = Dispatcher(bot = bot)
 
 @dp.message_handler(content_types = ContentType.PHOTO)
 async def toPhoto(message: types.Message):
-    await message.photo[-1].download('test.jpg')
-
-
+    await ih.imageHandler(message)
 
 @dp.message_handler(commands = ['start'])
 async def printall(message: types.Message):
@@ -41,7 +40,7 @@ async def callback(cQuery):
     if (cQuery.data.startswith('contact')):
         await ch.contactsHandler(cQuery.data, cQuery.message)
     elif (cQuery.data.startswith('game')):
-        await gh.gameHandler(cQuery.data, cQuery.message)
+        await gh.gameHandler(cQuery.data, cQuery.message, cQuery.from_user.id)
     elif (cQuery.data.startswith('menu')):
         await mh.menuHandler(cQuery.message)
     elif (cQuery.data.startswith('result')):
