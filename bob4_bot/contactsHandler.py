@@ -10,8 +10,7 @@ contacts = [
     ['Иван Иванов4', '88005553535', '@ivan4'],
 ]
 
-async def showContacts(callback, message):
-    print(callback)
+async def contactsHandler(callback, message):
 
     if (callback == 'contacts'):
         await printContacts(message)
@@ -26,25 +25,34 @@ async def showContacts(callback, message):
 
 async def printContacts(message):
     await message.edit_text('Мои создатели:', reply_markup = createInlineMenu([
-            [["Иван Иванов1", "contact_1"]],
-            [["Иван Иванов2", "contact_2"]],
-            [["Иван Иванов3", "contact_3"]],
-            [["Иван Иванов4", "contact_4"]]
+            [[contacts[0][0], "contact_1"]],
+            [[contacts[1][0], "contact_2"]],
+            [[contacts[2][0], "contact_3"]],
+            [[contacts[3][0], "contact_4"]],
+            [['Назад', 'menu']]
         ]))    
 
 async def printContact_1(message):
     info = contacts[0]
-    await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram^ " + info[2]) 
+    await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram: " + info[2], reply_markup = createInlineMenu([
+        [['На главную', 'menu'],['Назад', 'contacts']]
+    ])) 
 
 async def printContact_2(message):
     info = contacts[1]
-    await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram^ " + info[2])  
+    await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram: " + info[2], reply_markup = createInlineMenu([
+        [['На главную', 'menu'],['Назад', 'contacts']]
+    ]))   
 
 async def printContact_3(message):
     info = contacts[2]
-    await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram^ " + info[2])  
+    await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram: " + info[2], reply_markup = createInlineMenu([
+        [['На главную', 'menu'],['Назад', 'contacts']]
+    ]))   
 
 async def printContact_4(message):
     info = contacts[3]
-    await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram^ " + info[2])  
+    await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram: " + info[2], reply_markup = createInlineMenu([
+        [['На главную', 'menu'],['Назад', 'contacts']]
+    ]))   
 
