@@ -54,7 +54,7 @@ rspset = [rsp] # ответ в виде сета - нужно сверить с 
 # ========================= тут пошло поехало, листай сразу в конец ================================
 
 
-PREDICTOR_PATH = '/home/likvi/bot/CTOJI_CTYJI_4AIIIKA/swap_images/shape_predictor/shape_predictor_68_face_landmarks.dat'
+PREDICTOR_PATH = '/swap_images/shape_predictor/shape_predictor_68_face_landmarks.dat'
 SCALE_FACTOR = 1 
 FEATHER_AMOUNT = 11
 
