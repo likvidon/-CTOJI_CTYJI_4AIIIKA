@@ -6,9 +6,6 @@
 - shape_predictor - папка с моделью подбора размера
 - fotos - содержатся фотографии для тестов и демонстраций
 
-## Запуск
-```python ./faceswap.py <head image> <face image>```
-
 ## Требования
 - open-cv (cv2) ```pip3 install open-cv```
 
