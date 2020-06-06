@@ -39,7 +39,7 @@ async def printQuestion(callback, message, user_id):
     question_idx = len(callback[5:])
     if (question_idx == 2): 
         return await finishGame(callback, message, user_id)
-    await message.answer_photo(InputFile('./placeholder.jpg'))
+    await message.answer_photo(InputFile('./questions_images/placeholder.jpg'))
     await message.answer(questions[question_idx], reply_markup = createInlineMenu([
         [['Ответ1', callback + '1'], ['Ответ2', callback + '2']]
     ]))
