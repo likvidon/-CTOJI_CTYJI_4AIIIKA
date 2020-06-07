@@ -53,7 +53,7 @@ async def finishGame(callback, message, user_id):
 
 async def printQuestion(callback, message, user_id):
     question_idx = len(callback[5:])
-    if (question_idx == 2): 
+    if (question_idx == 8): 
         return await finishGame(callback, message, user_id)
     await message.answer_photo(InputFile('./questions_images/placeholder.jpg'))
     await message.answer(question, reply_markup = createInlineMenu([
