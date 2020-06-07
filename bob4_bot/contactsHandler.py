@@ -27,7 +27,7 @@ async def printContacts(message):
         ]))    
 
 async def printCurrContact(message, contact_id):
-    info = contacts[contact_id]
+    info = contacts[contact_id - 1]
     await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram: " + info[2], reply_markup = createInlineMenu([
         [['На главную', 'menu'],['Назад', 'contacts']]
     ])) 
