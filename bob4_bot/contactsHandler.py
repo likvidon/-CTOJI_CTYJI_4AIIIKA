@@ -15,7 +15,7 @@ async def contactsHandler(callback, message):
     if (callback == 'contacts'):
         await printContacts(message)
     else:
-        await printCurrContact(message, int(callback[7:]))
+        await printCurrContact(message, int(callback[8:]))
 
 async def printContacts(message):
     await message.edit_text('Мои создатели:', reply_markup = createInlineMenu([
