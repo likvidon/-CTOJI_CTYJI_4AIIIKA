@@ -5,7 +5,7 @@ from myHelpers import createInlineMenu
 
 import db
 
-question = 'Выбирай'
+question = ' Выбирай '
 
 answers = [
     ['Собрать своего робота-питомца','Завести кайфовоо песика'],
@@ -43,7 +43,7 @@ async def startGame(message, user_id):
 async def mainPlayer(callback, message, user_id):
     for button in message.reply_markup.inline_keyboard:
         if (callback == button[0].callback_data):
-            await message.edit_text(message.text + "\n" + "Ваш прогресс:" + button[0].callback_data)
+            await message.edit_text(message.text + "\n" + "Ваш ответ:  " + button[0].text)
     await printQuestion(callback, message, user_id)
     
 async def finishGame(callback, message, user_id):
@@ -56,6 +56,6 @@ async def printQuestion(callback, message, user_id):
     if (question_idx == 8): 
         return await finishGame(callback, message, user_id)
     await message.answer_photo(InputFile('./questions_images/placeholder.jpg'))
-    await message.answer(question, reply_markup = createInlineMenu([
+    await message.answer("(" + str(question_idx+1) + "/8), " + question, reply_markup = createInlineMenu([
         [[answers[question_idx][0], callback + '1']], [[answers[question_idx][1], callback + '2']]
     ]))

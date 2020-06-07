@@ -27,7 +27,7 @@ async def toPhoto(message: types.Message):
 
 @dp.message_handler(commands = ['start'])
 async def printall(message: types.Message):
-    await message.answer('Привет, я бот!', reply_markup = createInlineMenu([ # простая функция для создания клавиатуры (см. helpers.py)
+    await message.answer('Привет, я создан с целью помочь тебе поразвлечься и получить полезную информацию. Жмякай ниже и да начнется веселье!', reply_markup = createInlineMenu([ # простая функция для создания клавиатуры (см. helpers.py)
         [['Приступим', 'menu']]
     ])) # отправка начального сообщения
 

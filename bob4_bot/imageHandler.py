@@ -8,7 +8,7 @@ import db
 professions = [
     'cyber_investigator', 
     'ecologist', 
-    'game_master', 
+    'gamer', 
     'protez_worker',
     'janitor' # дворник
 ]
@@ -16,7 +16,7 @@ professions = [
 profBeautiful = {
     'cyber_investigator': 'Кибер исследователем', 
     'ecologist': 'Экологом', 
-    'game_master': 'Игромастером', 
+    'gamer': 'Игромастером', 
     'protez_worker': 'Разработчиком киберпротезов и имплантатов',
     'janitor': 'Дворник\nК сожалению, наш тест не помог тебе выбрать профессию, зато ты сломал систему'# дворник
 }
