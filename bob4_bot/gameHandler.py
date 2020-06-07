@@ -57,5 +57,5 @@ async def printQuestion(callback, message, user_id):
         return await finishGame(callback, message, user_id)
     await message.answer_photo(InputFile('./questions_images/placeholder.jpg'))
     await message.answer(question, reply_markup = createInlineMenu([
-        [[answers[question_idx][0], callback + '1'], [answers[question_idx][1], callback + '2']]
+        [[answers[question_idx][0], callback + '1']], [[answers[question_idx][1], callback + '2']]
     ]))

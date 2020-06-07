@@ -15,22 +15,23 @@ professions = [
 
 profBeautiful = {
     'cyber_investigator': 'Кибер исследователем', 
-    'ecologist': 'Эколог', 
-    'game_master': 'Игромастер', 
-    'protez_worker': 'Разработчик киберпротезов и имплантатов',
-    'janitor': 'Дворник\nК сожелению, наш тест не помог тебе выбрать профессию, зато ты сломал систему'# дворник
+    'ecologist': 'Экологом', 
+    'game_master': 'Игромастером', 
+    'protez_worker': 'Разработчиком киберпротезов и имплантатов',
+    'janitor': 'Дворник\nК сожалению, наш тест не помог тебе выбрать профессию, зато ты сломал систему'# дворник
 }
 
 async def imageHandler(message):
-    res = db.findResult(message.from_user.id)
+    res = str(db.findResult(message.from_user.id))
+    print(res)
     if (res):
-        if (res[4] == 2 && res [7] == 2):
+        if (res[4] == '2' and res[7] == '2'):
             res = professions[0]
-        elif (res[1] == 1 && res[4] == 1):
+        elif (res[1] == '1' and res[4] == '1'):
             res = professions[1]
-        elif (res[2] == 1 && res[3] == 1):
+        elif (res[2] == '1' and res[3] == '1'):
             res = professions[2]
-        elif (res[3] == 1 && res[6] == 1):
+        elif (res[3] == '1' and res[6] == '1'):
             res = professions[3]
         else:
             res = professions[4]
