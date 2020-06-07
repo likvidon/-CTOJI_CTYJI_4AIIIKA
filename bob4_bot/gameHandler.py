@@ -27,7 +27,7 @@ answers = [
 #     './questions_images/6.jpg',
 #     './questions_images/7.jpg',
 #     './questions_images/8.jpg',
-# ]
+# ] # массив с путями на картинки для вопросов
 
 async def gameHandler(callback, message, user_id):
     if (callback == 'game_'):
@@ -55,7 +55,7 @@ async def printQuestion(callback, message, user_id):
     question_idx = len(callback[5:])
     if (question_idx == 8): 
         return await finishGame(callback, message, user_id)
-    await message.answer_photo(InputFile('./questions_images/placeholder.jpg'))
+    await message.answer_photo(InputFile('./questions_images/placeholder.jpg')) # путь до placeholder'a (здесь могла быть ваша реклама), если ,будут все фотки для вопросов, то заменить на images[question_idx]
     await message.answer("(" + str(question_idx+1) + "/8), " + question, reply_markup = createInlineMenu([
         [[answers[question_idx][0], callback + '1']], [[answers[question_idx][1], callback + '2']]
     ]))
