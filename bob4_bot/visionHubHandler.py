@@ -1,3 +1,4 @@
+#### НЕ ПОЛУЧИЛОСЬ РЕАЛИЗОВАТЬ ####
 import requests
 import json
 
@@ -10,4 +11,4 @@ res = requests.post('https://www.visionhub.ru/api/v2/process/img2img/?process_ty
     headers = {"Authorization": "Bearer " + token, "Content-Type": 'multipart/form-data'},  
     files = {'image': open('./users_images/215340812.jpg', 'rb'), 'model': 'face-blurring'}),
 
-print(res[0].text)
+print(res[0].text) 
