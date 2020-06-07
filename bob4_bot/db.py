@@ -16,6 +16,6 @@ def findResult(user_id):
     c.execute("SELECT * from users WHERE user_id='" + str(user_id) + "'")
     res = c.fetchone()
     if (res):
-        return res[0]
+        return res[2]
     else:
         return res
