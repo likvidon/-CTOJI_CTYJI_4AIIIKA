@@ -5,13 +5,29 @@ from myHelpers import createInlineMenu
 
 import db
 
-questions = [
-    'Привет, как дела? Аниме=сила_1',
-    'Привет, как дела? Аниме=сила_2',
-    'Привет, как дела? Аниме=сила_3',
-    'Привет, как дела? Аниме=сила_4',
-    'Привет, как дела? Аниме=сила_5',
+question = 'Выбирай'
+
+answers = [
+    ['Собрать своего робота-питомца','Завести кайфовоо песика'],
+    ['Улучшить жизнь людей на Земле','Найти источники жизни на других планетах'], 
+    ['Работать в команде','Делать все в одиночку'],
+    ['Играть, чиллить','Постигать новые навыки'],
+    ['Реальный мир','Виртуальный'],
+    ['Структурировать','Прыгать в неизвестность'],
+    ['Находить причину проблем','Защищать пострадавшего'],
+    ['Распостранять информацию в массы','Стать источником новой информации, изобретателем'], # Любимчик публики \ Изобретатель
 ]
+
+# images = [
+#     './questions_images/1.jpg',
+#     './questions_images/2.jpg',
+#     './questions_images/3.jpg',
+#     './questions_images/4.jpg',
+#     './questions_images/5.jpg',
+#     './questions_images/6.jpg',
+#     './questions_images/7.jpg',
+#     './questions_images/8.jpg',
+# ]
 
 async def gameHandler(callback, message, user_id):
     if (callback == 'game_'):
@@ -25,9 +41,9 @@ async def startGame(message, user_id):
     await printQuestion(callback, message, user_id)
 
 async def mainPlayer(callback, message, user_id):
-    for button in message.reply_markup.inline_keyboard[0]:
-        if (callback == button.callback_data):
-            await message.edit_text(message.text + "\n" + "Ваш прогресс:" + button.callback_data)
+    for button in message.reply_markup.inline_keyboard:
+        if (callback == button[0].callback_data):
+            await message.edit_text(message.text + "\n" + "Ваш прогресс:" + button[0].callback_data)
     await printQuestion(callback, message, user_id)
     
 async def finishGame(callback, message, user_id):
@@ -40,6 +56,6 @@ async def printQuestion(callback, message, user_id):
     if (question_idx == 2): 
         return await finishGame(callback, message, user_id)
     await message.answer_photo(InputFile('./questions_images/placeholder.jpg'))
-    await message.answer(questions[question_idx], reply_markup = createInlineMenu([
-        [['Ответ1', callback + '1'], ['Ответ2', callback + '2']]
+    await message.answer(question, reply_markup = createInlineMenu([
+        [[answers[question_idx][0], callback + '1'], [answers[question_idx][1], callback + '2']]
     ]))
