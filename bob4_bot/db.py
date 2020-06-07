@@ -5,6 +5,17 @@ import sqlite3
 conn = sqlite3.connect(os.path.join('myDB.db'))
 c = conn.cursor()
 
-def add_new_user(user_id, selfie_path):
-    c.execute("INSERT INTO users (user_id, user_selfie_path) VALUES (" + str(user_id) ", " + selfie_path + ")")
-    
+def createUser(user_id, result):
+    if(findResult(user_id)):
+        c.execute("DELETE FROM users WHERE user_id=" + "'" + str(user_id) + "'")
+    c.execute("INSERT INTO users (user_id, result) VALUES (" + str(user_id) + ", " + result + ")")
+    conn.commit()
+    print('user created')
+
+def findResult(user_id):
+    c.execute("SELECT * from users WHERE user_id='" + str(user_id) + "'")
+    res = c.fetchone()
+    if (res):
+        return res[0]
+    else:
+        return res
