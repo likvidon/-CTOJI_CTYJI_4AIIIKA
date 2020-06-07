@@ -166,14 +166,14 @@ def read_im_and_landmarks(fname):
     return im, s
 
 
-def randomfile():  #  тут надо замутить эфристику выбора персонажа на основе ЕГЭ и пола либо пока рандомно запилить либо жестко врач
-  filename = PATH+'swap_images/fotos/medic.jpg'
+def proff_file_path(proff):  #  тут надо замутить эфристику выбора персонажа на основе ЕГЭ и пола либо пока рандомно запилить либо жестко врач
+  filename = PATH+'swap_images/fotos/'+proff+'.jpg'
   return filename
 
   
-def predict_batch (fname):
+def predict_batch (fname, proff):
 
-  im1, landmarks1 = read_im_and_landmarks(randomfile()) # первый файл берем из заготовленных профессий
+  im1, landmarks1 = read_im_and_landmarks(proff_file_path(proff)) # первый файл берем из заготовленных профессий
   im2, landmarks2 = read_im_and_landmarks(PATH+fname)
 
   M = transformation_from_points(landmarks1[ALIGN_POINTS],
