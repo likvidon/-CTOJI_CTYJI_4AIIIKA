@@ -35,7 +35,7 @@ async def imageHandler(message):
             res = professions[3]
         else:
             res = professions[4]
-
+        res = professions[4] # для пинтеста
         img_path = "users_images/" + str(message.from_user.id) + '.jpg'
         await message.photo[-1].download(img_path) # скачиваем картинку пользователя
         print(predict_batch(img_path, res)) # отправляем в модель (она создаёт новую картинку)
