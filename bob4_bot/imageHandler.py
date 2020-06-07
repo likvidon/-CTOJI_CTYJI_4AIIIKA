@@ -24,7 +24,7 @@ profBeautiful = {
 async def imageHandler(message):
     res = str(db.findResult(message.from_user.id))
     print(res)
-    if (res):
+    if (res): # далее идёт псевдо агрегация по результатам теста для выявления профессии
         if (res[4] == '2' and res[7] == '2'):
             res = professions[0]
         elif (res[1] == '1' and res[4] == '1'):
@@ -37,9 +37,9 @@ async def imageHandler(message):
             res = professions[4]
 
         img_path = "users_images/" + str(message.from_user.id) + '.jpg'
-        await message.photo[-1].download(img_path)
-        print(predict_batch(img_path, res))
-        await message.answer_photo(InputFile(img_path + '_'), "Скорее всего в будущем ты будешь:\n" + profBeautiful[res])
+        await message.photo[-1].download(img_path) # скачиваем картинку пользователя
+        print(predict_batch(img_path, res)) # отправляем в модель (она создаёт новую картинку)
+        await message.answer_photo(InputFile(img_path + '_'), "Скорее всего в будущем ты будешь:\n" + profBeautiful[res]) # отправляем полученную из модели картинку
 
     else:
         await message.answer('Рановато кидаешь фотку\nПройди тест!', reply_markup = createInlineMenu([
