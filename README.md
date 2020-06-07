@@ -12,7 +12,15 @@
     |__ questions_images - картинки для вопросов
     |__ _users_images_ - картинки пользователей
     |__ swap_images - папка с моделью подстановки лица
-        |__ fotos - картинки профессий
-        |__ shape_predictor
-        |__ test_data
-            |__ images
+    |   |__ fotos - картинки профессий
+    |   |__ shape_predictor
+    |   |__ test_data
+    |       |__ images
+    |__ main.py - главный файл в котором крутится бот
+    |__ createdb.sql - скрипт для создания таблицы в sqlite3
+    |__ db.py - оберточные функции для дб
+    |__ myHelpers.py - вспомогательные функции
+    |--- Далее идёт список обработчиков ---
+    |__ menuHandler.py
+    |__ gameHandler.py
+    |__ imageHandler.py
