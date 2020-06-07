@@ -14,14 +14,8 @@ async def contactsHandler(callback, message):
 
     if (callback == 'contacts'):
         await printContacts(message)
-    elif (callback == 'contact_1'):
-        await printContact_1(message)
-    elif (callback == 'contact_2'):
-        await printContact_2(message)
-    elif (callback == 'contact_3'):
-        await printContact_3(message)
-    elif (callback == 'contact_4'):
-        await printContact_4(message)
+    else:
+        await printCurrContact(message, int(callback[7:]))
 
 async def printContacts(message):
     await message.edit_text('Мои создатели:', reply_markup = createInlineMenu([
@@ -32,27 +26,9 @@ async def printContacts(message):
             [['Назад', 'menu']]
         ]))    
 
-async def printContact_1(message):
-    info = contacts[0]
+async def printCurrContact(message, contact_id):
+    info = contacts[contact_id]
     await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram: " + info[2], reply_markup = createInlineMenu([
         [['На главную', 'menu'],['Назад', 'contacts']]
     ])) 
-
-async def printContact_2(message):
-    info = contacts[1]
-    await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram: " + info[2], reply_markup = createInlineMenu([
-        [['На главную', 'menu'],['Назад', 'contacts']]
-    ]))   
-
-async def printContact_3(message):
-    info = contacts[2]
-    await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram: " + info[2], reply_markup = createInlineMenu([
-        [['На главную', 'menu'],['Назад', 'contacts']]
-    ]))   
-
-async def printContact_4(message):
-    info = contacts[3]
-    await message.edit_text(info[0] + "\nТелефон: " + info[1] + "\nTelegram: " + info[2], reply_markup = createInlineMenu([
-        [['На главную', 'menu'],['Назад', 'contacts']]
-    ]))   
 
