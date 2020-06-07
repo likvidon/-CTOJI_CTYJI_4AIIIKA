@@ -10,7 +10,7 @@
 
     bob4_bot
     |__ questions_images - картинки для вопросов
-    |__ _users_images_ - картинки пользователей
+    |__ users_images - картинки пользователей
     |__ swap_images - папка с моделью подстановки лица
     |   |__ fotos - картинки профессий
     |   |__ shape_predictor
@@ -21,6 +21,7 @@
     |__ db.py - оберточные функции для дб
     |__ myHelpers.py - вспомогательные функции
     |--- Далее идёт список обработчиков ---
+    |
     |__ menuHandler.py
     |__ gameHandler.py
     |__ imageHandler.py
