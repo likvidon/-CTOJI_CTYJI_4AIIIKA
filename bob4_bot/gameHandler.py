@@ -56,6 +56,6 @@ async def printQuestion(callback, message, user_id):
     if (question_idx == 3): 
         return await finishGame(callback, message, user_id)
     await message.answer_photo(InputFile(images[question_idx]))
-    await message.answer("(" + str(question_idx+1) + "/8), " + question, reply_markup = createInlineMenu([
+    await message.answer("(" + str(question_idx+1) + "/3), " + question, reply_markup = createInlineMenu([
         [[answers[question_idx][0], callback + '1']], [[answers[question_idx][1], callback + '2']]
     ]))
