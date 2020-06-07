@@ -13,7 +13,7 @@ PATH = ''  # путь общий
 # ========================= тут пошло поехало, листай сразу в конец ================================
 
 
-PREDICTOR_PATH = PATH+'swap_images/model/shape_predictor_68_face_landmarks.dat'
+PREDICTOR_PATH = PATH+'swap_images/shape_predictor/shape_predictor_68_face_landmarks.dat'
 SCALE_FACTOR = 1 
 FEATHER_AMOUNT = 11
 
