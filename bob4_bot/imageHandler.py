@@ -25,16 +25,17 @@ async def imageHandler(message):
     res = str(db.findResult(message.from_user.id))
     print(res)
     if (res):
-        if (res[4] == '2' and res[7] == '2'):
-            res = professions[0]
-        elif (res[1] == '1' and res[4] == '1'):
-            res = professions[1]
-        elif (res[2] == '1' and res[3] == '1'):
-            res = professions[2]
-        elif (res[3] == '1' and res[6] == '1'):
-            res = professions[3]
-        else:
-            res = professions[4]
+        # if (res[4] == '2' and res[7] == '2'):
+        #     res = professions[0]
+        # elif (res[1] == '1' and res[4] == '1'):
+        #     res = professions[1]
+        # elif (res[2] == '1' and res[3] == '1'):
+        #     res = professions[2]
+        # elif (res[3] == '1' and res[6] == '1'):
+        #     res = professions[3]
+        # else:
+        #     res = professions[4]
+        res = professions[3]
 
         img_path = "users_images/" + str(message.from_user.id) + '.jpg'
         await message.photo[-1].download(img_path)
