@@ -4,10 +4,10 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from myHelpers import createInlineMenu
 
 contacts = [
-    ['Иван Иванов1', '88005553535', '@ivan1'],
-    ['Иван Иванов2', '88005553535', '@ivan2'],
-    ['Иван Иванов3', '88005553535', '@ivan3'],
-    ['Иван Иванов4', '88005553535', '@ivan4'],
+    ['Мария Качалова', '+7(905)558-66-65', '@Maryf0x'],
+    ['Герасимова Ольга', '404 Not found', '@forestmaid'],
+    ['Дмитрий Крючков', '+7(964)503-96-68', '@Vladyka_morey'],
+    ['Артем Брызгалов', '404 Not found', '@abrizgalov'],
 ]
 
 async def contactsHandler(callback, message):
