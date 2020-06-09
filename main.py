@@ -27,9 +27,16 @@ async def toPhoto(message: types.Message):
 
 @dp.message_handler(commands = ['start'])
 async def printall(message: types.Message):
-    await message.answer('Привет, я создан с целью помочь тебе поразвлечься и получить полезную информацию. Жмякай ниже и да начнется веселье!', reply_markup = createInlineMenu([ # простая функция для создания клавиатуры (см. helpers.py)
+    await message.answer('Привет, я создан с целью помочь тебе поразвлечься и дать совет по-поводу твоей будущей взрослой жизни! Жмякай ниже и да начнется веселье!', reply_markup = createInlineMenu([ # простая функция для создания клавиатуры (см. helpers.py)
         [['Приступим', 'menu']]
     ])) # отправка начального сообщения
+
+@dp.message_handler(commands = ['feedback'])
+async def feedback(message: types.Message):
+    with open('feedback.txt', 'a') as file:
+        file.write(message.text[9:]+'\n')
+
+    await message.answer('Спасибо! Ты помогаешь становиться нам лучше :3')
 
 @dp.message_handler()
 async def logging(message: types.Message):

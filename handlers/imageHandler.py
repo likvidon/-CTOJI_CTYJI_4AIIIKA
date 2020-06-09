@@ -23,8 +23,8 @@ profBeautiful = {
 
 async def imageHandler(message):
     res = str(db.findResult(message.from_user.id))
-    print(res)
-    if (res): # далее идёт псевдо агрегация по результатам теста для выявления профессии
+
+    if (res): # далее идёт псевдо-агрегация по результатам теста для выявления профессии (Исправить)
         if (res[4] == '2' and res[7] == '2'):
             res = professions[0]
         elif (res[1] == '1' and res[4] == '1'):
@@ -38,8 +38,16 @@ async def imageHandler(message):
 
         img_path = "users_images/" + str(message.from_user.id) + '.jpg'
         await message.photo[-1].download(img_path) # скачиваем картинку пользователя
-        print(predict_batch(img_path, res)) # отправляем в модель (она создаёт новую картинку)
-        await message.answer_photo(InputFile(img_path + '_'), "Скорее всего в будущем ты будешь:\n" + profBeautiful[res]) # отправляем полученную из модели картинку
+        
+        try:
+            print(predict_batch(img_path, res)) # отправляем в модель (она создаёт новую картинку)
+            await message.answer_photo(InputFile(img_path + '_'), "Скорее всего в будущем ты будешь:\n" + profBeautiful[res]) # отправляем полученную из модели картинку
+            await message.answer('Спасибо за тестирование нашего бота! Если ты хочешь пройти тест еще раз, напиши команду /start или жми на нее прямо в этом сообщении :)')
+            await message.answer('Было бы круто, если бы ты оставил нам свой коммент! Если хочешь это сделать, начни свое сообщение с команды \n /feedback')
+
+        except:
+            await message.answer('Ничего не понятно ;(\nУбедись что тут вообще есть лицо и оно одно :)')
+
 
     else:
         await message.answer('Рановато кидаешь фотку\nПройди тест!', reply_markup = createInlineMenu([
