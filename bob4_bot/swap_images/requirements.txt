@@ -1,5 +1,0 @@
-numpy
-json
-pickle
-cv2
-dlib
